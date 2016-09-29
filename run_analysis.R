@@ -35,7 +35,8 @@ cleaned_cols <- tolower(colnames(m_set))
 cleaned_cols <- gsub("-", "_", cleaned_cols)
 cleaned_cols <- sub("tbody", "rawbody", cleaned_cols)
 cleaned_cols <- sub("tgravity", "rawgravity", cleaned_cols)
-cleaned_cols <- sub("fbody", "featurebody", cleaned_cols)
+cleaned_cols <- sub("fbody", "feature", cleaned_cols)
+cleaned_cols <- sub("\\(\\)", "", cleaned_cols)
 colnames(m_set) <- cleaned_cols
 
 activity_subject_means <- m_set %>%
@@ -45,4 +46,6 @@ activity_subject_means <- m_set %>%
                             ungroup()
 
 activity_subject_means <- merge(activity_subject_means, activity_labels, by.x = "activity", by.y = "activity_id")
+
+write.table(activity_subject_means, file = "activity_subject_means.txt", row.names = FALSE)
                 
