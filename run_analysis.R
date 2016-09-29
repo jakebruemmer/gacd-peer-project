@@ -39,6 +39,9 @@ cleaned_cols <- sub("fbody", "feature", cleaned_cols)
 cleaned_cols <- sub("\\(\\)", "", cleaned_cols)
 colnames(m_set) <- cleaned_cols
 
+# Shift around the column names in m_set to make it a little bit cleaner
+m_set <- subset(m_set, select = c(activity, subject, activity_name, rawbodyacc_mean_x:featurebodygyrojerkmag_meanfreq))
+
 activity_subject_means <- m_set %>%
                             select(-activity_name) %>%
                             group_by(subject, activity) %>%
