@@ -1,6 +1,6 @@
 library(dplyr)
 
-setwd("~/google-drive/programming/r-projects/data-science-coursera/getting-and-cleaning-data/week4/UCI HAR Dataset")
+setwd(paste0(getwd(), "/gacd-peer-project/UCI HAR Dataset"))
 
 # Read in the datasets as is at first.
 activity_labels <- read.table("activity_labels.txt")
