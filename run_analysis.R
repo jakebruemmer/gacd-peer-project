@@ -1,6 +1,6 @@
 library(dplyr)
 
-setwd(paste0(getwd(), "/gacd-peer-project/UCI HAR Dataset"))
+setwd(paste0(getwd(), "/UCI HAR Dataset"))
 
 # Read in the datasets as is at first.
 activity_labels <- read.table("activity_labels.txt")
